@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: dim_crew_members
+    columns:
+      - name: crew_member_id
+        description: Unique identifier for the crew member
+        data_tests:
+          - unique
+
+      - name: crew_member_name
+        description: Name of the crew member
+        data_tests:
+          - not_null
+
+      - name: gender
+        description: Crew member gender
+        data_tests:
+          - not_null

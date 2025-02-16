@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: dim_movie_actor_role_level
+    columns:
+      - name: credit_id
+        description: Unique identifier for the actor x movie x character combination
+        data_tests:
+          - unique
+
+      - name: movie_id
+        description: Identifier for the movie
+        data_tests:
+          - not_null
+
+      - name: actor_id
+        description: Identifier for the actor
+        data_tests:
+          - not_null
+
+      - name: cast_order
+        description: Order of the character in the movie
+
+      - name: character_name
+        description: Character played by the actor in the movie
+
+      - name: cast_category
+        description: Character category based on `cast_order`

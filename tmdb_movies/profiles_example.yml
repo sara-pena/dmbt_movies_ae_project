@@ -1,0 +1,15 @@
+tmdb_movies:
+  target: dev
+
+  outputs:
+    dev:
+      type: duckdb
+      schema: dbt_name_your_dev_schema
+      path: /Users/sara/tmdb_duckdb.db
+      threads: 1
+
+    prod:
+      type: duckdb
+      schema: dbt
+      path: /Users/sara/tmdb_duckdb.db
+      threads: 1

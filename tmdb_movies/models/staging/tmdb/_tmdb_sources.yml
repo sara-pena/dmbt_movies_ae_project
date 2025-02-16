@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: tmdb_duckdb
+    schema: main
+    tables:
+      - name: credits
+        identifier: tmdb_credits
+        description: "Source table for credits, containing cast and crew data"
+
+      - name: movies
+        identifier: tmdb_movies
+        description: "Source table for movies"

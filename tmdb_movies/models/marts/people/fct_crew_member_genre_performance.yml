@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: fct_crew_member_genre_performance
+    columns:
+      - name: crew_member_genre_id
+        description: Unique identifier for the crew member x genre combination
+        data_tests:
+          - unique
+
+      - name: crew_member_id
+        description: Unique identifier for the crew member
+
+      - name: genre_id
+        description: Identifier for the genre
+        data_tests:
+          - not_null
+
+      - name: n_movies_in_genre
+        description: |
+          Counts the number of movies in the genre in which the crew member has 
+          performed at least one job
+
+      - name: n_movies_in_top_25_rated_by_genre
+        description: |
+          Counts the number of movies within the top 25 highest-rated in a genre
+          where the crew member has performed at least one job
+
+      - name: n_movies_in_top_25_popular_by_genre
+        description: |
+          Counts the number of movies within the top 25 highest-popularity in a
+          genre where the crew member has performed at least one job
+
+      - name: latest_release_date_in_genre
+        description: |
+          Release date of the most recent movie in a genre where a crew member
+          has performed at least one job
+
+      - name: most_popular_movie_id
+        description: |
+          Identifier of the most popular movie in a genre where a crew member
+          has performed at least one job

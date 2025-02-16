@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: dim_movie_crew_member_job_level
+    columns:
+      - name: credit_id
+        description: Unique identifier for the crew member x movie x job combination
+        data_tests:
+          - unique
+
+      - name: movie_id
+        description: Identifier for the movie
+        data_tests:
+          - not_null
+
+      - name: crew_member_id
+        description: Identifier for the crew member
+        data_tests:
+          - not_null
+
+      - name: department
+        description: Department name associated to the job
+
+      - name: job
+        description: Name of the job that the crew member performed

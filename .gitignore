@@ -1,0 +1,7 @@
+tmdb_movies/profiles.yml
+target/
+dbt_packages/
+logs/
+tmdb_duckdb.db
+tmdb_movies/.user.yml
+tmdb_movies/package-lock.yml

@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: stg_tmdb__movies
+    columns:
+      - name: movie_id
+        data_tests:
+          - unique
+  - name: stg_tmdb__movie_genres
+    columns:
+      - name: movie_genre_id
+        data_tests:
+          - unique
+  - name: stg_tmdb__movie_cast_members
+    columns:
+      - name: credit_id
+        data_tests:
+          - unique
+
+  - name: stg_tmdb__movie_crew_members
+    columns:
+      - name: credit_id
+        data_tests:
+          - unique

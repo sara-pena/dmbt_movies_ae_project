@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: dim_genres
+    columns:
+      - name: genre_id
+        description: Unique identifier for the genre
+        data_tests:
+          - unique
+
+      - name: genre_name
+        description: Name of the genre
+        data_tests:
+          - not_null

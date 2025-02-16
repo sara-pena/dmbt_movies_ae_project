@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: dim_actors
+    columns:
+      - name: actor_id
+        description: Unique identifier for the actor/actress
+        data_tests:
+          - unique
+
+      - name: actor_name
+        description: Name of the actor/actress
+        data_tests:
+          - not_null
+
+      - name: gender
+        description: Actor/actress gender
+        data_tests:
+          - not_null
