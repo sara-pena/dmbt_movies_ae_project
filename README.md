@@ -25,6 +25,10 @@ For the purposes of this test, I opted for a simpler approach to prioritize clar
 
 ## Data lineage - model architecture
 
+Here's the representation of the dbt model dependencies:
+
+![DBT DAG](tmdb_dag.png)
+
 ### Staging layer
 
 This layer would have as many folders as data origins we might have.
