@@ -85,3 +85,36 @@ of the entities compared to different subsets of data, like number of movies an 
 This could go further, for instance, having metrics at genre, actor and cast category level, to identify the best performing actors playing lead characters for a given genre.
 
 I imagine having daily updates on the movie metrics like popularity and having a fct_table to record the evolution in time of each movie (in that case, it'd be a good candidate for incremental materialization).
+
+## Using the marts layer
+
+This example shows how to get the top 5 directors with the most movies in the top 25
+highest-rated Science Fiction films, provided they have directed at least one movie in the past 10 years
+
+```
+--let's find the top 5 most successful directors for ficiton movies in the past 10 years
+
+with fiction_directors as (
+
+    select distinct
+        crew_member_id,
+        dim_movie_genres.genre_id
+
+    from dbt_spena_marts_people.dim_movie_crew_member_job_level
+    left join dbt_spena_marts_movies.dim_movie_genres
+        on dim_movie_genres.movie_id = dim_movie_crew_member_job_level.movie_id
+    left join dbt_spena_marts_movies.dim_genres
+        on dim_genres.genre_id = dim_movie_genres.genre_id
+    where job = 'Director'
+    and dim_genres.genre_name = 'Science Fiction'
+
+)
+
+select fct_crew_member_genre_performance.*
+from fiction_directors
+left join dbt_spena_marts_people.fct_crew_member_genre_performance
+using (crew_member_id, genre_id)
+where latest_release_date_in_genre between '2007-02-03' and '2017-02-03'
+order by n_movies_in_top_25_rated_by_genre desc, latest_release_date_in_genre desc
+limit 5;
+```
