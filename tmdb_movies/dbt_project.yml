@@ -30,5 +30,7 @@ models:
       +schema: internal
     marts:
       +materialized: table
-      finance:
-        +schema: marts
+      movies:
+        +schema: marts_movies
+      people:
+        +schema: marts_people
