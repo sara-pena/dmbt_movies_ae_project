@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: int_actors
+    description: |
+      Gets unique 'actor_id' and 'actor_name'
+
+  - name: int_crew_members
+    description: |
+      Gets unique 'crew_member_id' and 'crew_member_name'
+
+  - name: int_actors_attributes
+    description: |
+      Gets the latest attributes of an actor, like gender and name, based on the
+      data available in their latest movie
+
+  - name: int_crew_member_attributes
+    description: |
+      Gets the latest attributes of a crew member, like gender and name, based on the 
+      data available in their latest movie
+
+  - name: int_movie_actors_deduplicated
+    description: |
+      Gets unique combinations of `movie_id` and `actor_id`, to account for movies where an actor plays many roles
+
+  - name: int_movie_crew_members_deduplicated
+    description: |
+      Gets unique combinations of `movie_id` and `crew_member_id`, to account for movies where a crew member performs many jobs
+
+  - name: int_actor_genre_metrics
+    description: |
+      Computes metrics at actor level based on movie performance relative to other movies in the genre
+
+  - name: int_crew_member_genre_metrics
+    description: |
+      Computes metrics at crew member level based on movie performance relative to other movies in the genre
+
+  - name: int_movie_actors__cast_category
+    description: |
+      Converts `cast_order` into a category to reflect the relevance of the character that an actor has played in a movie

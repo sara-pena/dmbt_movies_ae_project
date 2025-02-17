@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: int_genres
+    description: Gets unique 'genre_id' and 'genre_name'
+
+  - name: int_genre_metrics
+    description: Gets metrics at genre level based on the movies belonging to each genre
+
+  - name: int_movie_genre_metrics
+    description: Gets metrics at movie level compared to all movies within the same genre
+
+  - name: int_movie_metrics
+    description: Gets metrics at movie level compared to all movies, regardless of the genre
